@@ -1,0 +1,278 @@
+:root {
+  --blue: #3d88f9;
+  --gray: #f9f9f9;
+  --dark: #1a1a1a;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  background-color: #d7e0dd;
+}
+
+.background {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Centered Chatbox */
+.chat-window {
+  width: 100%;
+  max-width: 600px;
+  height: 700px;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Header */
+.chat-window .close {
+  background-color: #3e3f39;
+  color: var(--white);
+  padding: 12px;
+  border: none;
+  border-radius: 20px 20px 0 0;
+  font-weight: 600;
+  cursor: default;
+  font-size: 18px;
+}
+
+/* Chat area */
+.chat {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.model p {
+  /* border-radius: 16px; */
+  padding: 14px;
+  /* margin-bottom: 5px; */
+  /* margin-top: 5px; */
+  max-width: 80%;
+  /* background-color: #f7cab7;
+  color: #1a1a1a; */
+}
+
+.chat .user {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-bottom: 10px; */
+}
+
+.chat .user p {
+  border-radius: 16px;
+  padding: 14px;
+  /* margin-bottom: 5px; */
+  /* margin-top: 5px; */
+  max-width: 80%;
+  background-color: #d47058;
+  color: white;
+}
+
+
+/* Input area */
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid #ddd;
+  background-color: var(--gray);
+}
+
+.input-area input {
+  flex: 1;
+  height: 42px;
+  border-radius: 20px;
+  border: none;
+  padding: 0 16px;
+  font-size: 16px;
+  background-color: var(--white);
+}
+
+.input-area button {
+  width: 42px;
+  height: 42px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #588768;
+}
+
+.input-area button img {
+  width: 18px;
+}
+
+.input-area button:hover {
+  background-color: #42694f;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 15px; 
+}
+
+.chat-window .model h4 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+
+.chat-window  p {
+  line-height: 1.6;
+
+}
+
+.chat-window .model ul,
+.chat-window .model ol {
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.chat-window .model li {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.chat-window .chat .model > *:not(.hidden-styles) { 
+  background-color: #f7cab7; 
+  color: #1a1a1a;
+  border-radius: 16px;
+  padding: 10px 14px; 
+  margin-bottom: 5px; 
+  max-width: 80%; 
+  word-wrap: break-word; 
+}
+
+
+.chat-window .chat .model p {
+  line-height: 1.6;
+}
+
+.chat-window .chat .model h4 {
+  font-size: 1.1em; /* Adjust font size if needed */
+  font-weight: 700; /* Ensure it's bold */
+  margin-top: 10px; /* Adjust top margin for spacing from previous element */
+  margin-bottom: 5px; /* Adjust bottom margin */
+  /* All other bubble styles are inherited from the common rule above */
+}
+
+/* Specific adjustments for unordered and ordered lists */
+.chat-window .chat .model ul,
+.chat-window .chat .model ol {
+  /* padding: 10px 14px 10px 30px; Adjust left padding for bullets/numbers */
+  margin-left: 0; /* Reset default browser margin if any */
+  /* All other bubble styles are inherited from the common rule above */
+  color: #1a1a1a; /* Inherits text color */
+
+  /* KEY CHANGES FOR ALIGNMENT */
+  list-style-position: inside; /* This places the bullet/number *inside* the list item's content area */
+  margin-left: 0; /* Ensure no default margin pushes the list over */
+  padding-left: 20px; /* Adjust this value to control how far the content is indented from the left edge of the bubble */
+  padding-right: 14px; /* Keep consistent right padding */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Individual list items within the list bubble */
+.chat-window .chat .model li {
+  margin-bottom: 5px; /* Space between list items */
+  line-height: 1.4;
+  /* DO NOT apply bubble styles to individual li items, as they are part of the ul/ol bubble */
+  background-color: transparent; /* Ensure no extra background */
+  padding: 0; /* Ensure no extra padding */
+  border-radius: 0;
+  max-width: none; /* Let li take full width of its ul/ol parent */
+}
+
+/* Add this to your style.css file */
+
+/* Style for the back button on the page (not inside the chat window) */
+.page-back-button {
+  position: fixed; /* Stays in place when scrolling */
+  top: 20px; /* Distance from the top of the viewport */
+  left: 20px; /* Distance from the left of the viewport */
+  color: #3e3f39; /* Darker color to stand out on the light background */
+  text-decoration: none;
+  font-weight: 600;
+  
+  /* === Responsive Font Size === */
+  font-size: 1.1em; /* Default font size for larger screens */
+  
+  /* === Responsive Padding/Shape === */
+  padding: 8px 15px; /* Default padding for larger screens */
+  border-radius: 20px; /* More rounded, like a small pill button */
+  
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px; /* Subtle shadow */
+  z-index: 1000; /* Ensure it's on top of other content */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease, padding 0.3s ease; /* Add transitions for smooth scaling */
+}
+
+.page-back-button:hover {
+  background-color: rgba(255, 255, 255, 1); /* Opaque white on hover */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 15px; /* More prominent shadow on hover */
+}
+
+/* === Media Queries for Responsiveness === */
+
+/* For screens smaller than 768px (e.g., tablets in portrait) */
+@media (max-width: 768px) {
+  .page-back-button {
+    font-size: 1em; /* Slightly smaller font */
+    padding: 7px 12px; /* Adjust padding */
+    top: 15px;
+    left: 15px;
+  }
+}
+
+/* For screens smaller than 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+  .page-back-button {
+    font-size: 0.9em; /* Even smaller font */
+    padding: 6px 10px; /* Adjust padding further */
+    top: 10px;
+    left: 10px;
+    border-radius: 15px; /* Slightly less rounded */
+  }
+}
+
+/* Ensure the chat window header is styled correctly again without the flex container */
+.chat-window .close { /* This was your original chat window header */
+  background-color: #3e3f39;
+  color: var(--white);
+  padding: 12px;
+  border: none;
+  border-radius: 20px 20px 0 0;
+  font-weight: 600;
+  cursor: default;
+  font-size: 18px;
+  /* Removed position:relative and related back button styles */
+}
+
+/* Remove or comment out these previous rules: */
+/*
+.chat-window .header-container { ... }
+.chat-window .back-button { ... }
+*/
+
+/* Responsive */
+@media (max-width: 640px) {
+  .chat-window {
+    height: 90vh;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 640px) {
+  .input-area::placeholder {
+    font-size: 0.5rem;
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance AI - Your Home's Smart Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #d7e0dd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #1a1a1a;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .landing-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 20px;
+            padding: 40px;
+            max-width: 700px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        h1 {
+            color: #3e3f39;
+            font-size: 2.5em;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            color: #588768;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none; 
+            padding: 0; 
+            margin: 0; 
+            text-align: left; 
+            width: 100%;
+            max-width: 500px;
+        }
+
+        ul li {
+            background-color: #f7cab7; /* Model bubble background color */
+            border-radius: 16px; /* Rounded corners for the bubble */
+            padding: 10px 15px; /* Padding inside the bubble */
+            margin-bottom: 8px; /* Space between bubbles */
+            font-size: 1.05em; /* Slightly larger font for readability */
+            color: #1a1a1a; /* Text color */
+            display: flex; /* Use flexbox to easily align text inside */
+            align-items: center; /* Vertically center text if multiple lines */
+            word-wrap: break-word; /* Ensure long prompts wrap */
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px; /* Subtle shadow for depth */
+            line-height: 1.4;
+        }
+
+        .cta-button {
+            background-color: #d47058; /* User bubble color */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c0654e;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 15px; 
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            .landing-container {
+                padding: 20px;
+            }
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <h1>Welcome to Maintenance AI</h1>
+        <h2>Your Home's Smart Assistant!</h2>
+        <p>Maintenance AI is here to help you keep your home running smoothly, tackling everything from daily upkeep to tricky repairs. Whether you're a seasoned homeowner or just starting out, our friendly AI assistant empowers you with practical advice and quick solutions.</p>
+
+        <h3>Ready to Get Started? Try Asking:</h3>
+        <ul>
+            <li>"How do I clean a stained carpet?"</li>
+            <li>"My faucet is dripping, what should I do?"</li>
+            <li>"Find a plumber near West Lafayette, Indiana."</li>
+        </ul>
+
+        <a href="agent.html" class="cta-button">Start Chatting Now!</a>
+    </div>
+</body>
+</html>

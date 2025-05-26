@@ -1,0 +1,21 @@
+{
+	"siteId": "b5cee523-cd8e-449d-b63f-6827b15d3273",
+	"geolocation": {
+		"data": {
+			"city": "West Lafayette",
+			"country": {
+				"code": "US",
+				"name": "United States"
+			},
+			"subdivision": {
+				"code": "IN",
+				"name": "Indiana"
+			},
+			"timezone": "America/Indiana/Indianapolis",
+			"latitude": 40.4444,
+			"longitude": -86.9256,
+			"postalCode": "47906"
+		},
+		"timestamp": 1748217029239
+	}
+}
