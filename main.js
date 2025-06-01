@@ -12,7 +12,6 @@ function formatTextToBullets(text) {
     for (let i = 0; i < lines.length; i++) {
       let line = lines[i];
 
-      // --- 1. Detect and process list items first ---
       // Detect numbered list
       if (/^\d+\.\s+/.test(line)) {
         if (!inList || listType !== 'ol') {
@@ -24,8 +23,8 @@ function formatTextToBullets(text) {
         // Remove the list marker and then apply inline formatting
         let listItemContent = line.replace(/^\d+\.\s+/, '');
         const formattedItem = listItemContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Apply bold
-          .replace(/\*(.*?)\*/g, '<em>$1</em>'); // Apply italic
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+          .replace(/\*(.*?)\*/g, '<em>$1</em>'); 
         html += `<li>${formattedItem}</li>`;
       }
       // Detect unordered list
@@ -39,10 +38,11 @@ function formatTextToBullets(text) {
         // Remove the list marker and then apply inline formatting
         let listItemContent = line.replace(/^[-*]\s+/, '');
         const formattedItem = listItemContent
-          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Apply bold
-          .replace(/\*(.*?)\*/g, '<em>$1</em>'); // Apply italic
+          .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') 
+          .replace(/\*(.*?)\*/g, '<em>$1</em>'); 
         html += `<li>${formattedItem}</li>`;
       }
+
       // --- 2. If not a list item, check for headers ---
       // Detect bold headers (like **Section Title:**)
       else if (/^\*\*(.+?)\*\*:?$/.test(line)) {
@@ -52,8 +52,8 @@ function formatTextToBullets(text) {
           listType = null;
         }
         const match = line.match(/^\*\*(.+?)\*\*:?$/);
-        const title = match[1]; // Access the first captured group (content without stars)
-        html += `<h4><strong>${title}</strong></h4>`; // Wrap in <strong> for bolding
+        const title = match[1]; 
+        html += `<h4><strong>${title}</strong></h4>`; 
       }
       // --- 3. Otherwise, it's a plain paragraph ---
       else {
@@ -101,7 +101,17 @@ async function sendMessage() {
         `);
 
         chatWindow.insertAdjacentHTML("beforeend",`
-            <div class="loader"></div>
+            <div class="loader" style="display: flex;">
+                <div id="container">
+                    <div id="loading-bubble">
+                        <div class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         `);
 
         chatWindow.scrollTop = chatWindow.scrollHeight;
@@ -120,11 +130,10 @@ async function sendMessage() {
             },
             body: JSON.stringify({
                 userMessage: userMessage,
-                history: messagesHistory, // Send the current history to the backend
+                history: messagesHistory, 
             }),
         });
 
-        // Remove the loader
         const loader = document.querySelector(".chat-window .chat .loader");
         if (loader) {
             loader.remove();
@@ -136,7 +145,7 @@ async function sendMessage() {
         }
 
         const data = await response.json();
-        const modelResponseText = data.response; // Get the full response from your function
+        const modelResponseText = data.response;
 
         chatWindow.insertAdjacentHTML("beforeend",`
             <div class="model">
@@ -176,15 +185,6 @@ userInputElement.addEventListener("keypress", function(event) {
         sendMessage();
     }
 });
-
-// // Initial model message on load
-// document.addEventListener('DOMContentLoaded', () => {
-//     document.querySelector(".chat-window .chat").insertAdjacentHTML("beforeend",`
-//         <div class="model">
-//             <p>How can I help your home today?</p>
-//         </div>
-//     `);
-// });
 
 document.querySelector(".chat-button")
 .addEventListener("click", ()=>{

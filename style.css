@@ -19,7 +19,6 @@ body {
   padding: 20px;
 }
 
-/* Centered Chatbox */
 .chat-window {
   width: 100%;
   max-width: 600px;
@@ -33,7 +32,6 @@ body {
   overflow: hidden;
 }
 
-/* Header */
 .chat-window .close {
   background-color: #3e3f39;
   color: var(--white);
@@ -45,41 +43,39 @@ body {
   font-size: 18px;
 }
 
-/* Chat area */
 .chat {
   flex: 1;
   padding: 16px;
   overflow-y: auto;
 }
 
-.model p {
-  /* border-radius: 16px; */
+
+.chat .model p {
+  border-radius: 16px;
   padding: 14px;
-  /* margin-bottom: 5px; */
-  /* margin-top: 5px; */
   max-width: 80%;
-  /* background-color: #f7cab7;
-  color: #1a1a1a; */
+  background-color: #f7cab7;
+  color: #1a1a1a; 
+  word-wrap: break-word;
 }
 
 .chat .user {
   display: flex;
   justify-content: flex-end;
-  /* margin-bottom: 10px; */
+
 }
 
 .chat .user p {
   border-radius: 16px;
   padding: 14px;
-  /* margin-bottom: 5px; */
-  /* margin-top: 5px; */
   max-width: 80%;
   background-color: #d47058;
   color: white;
+  word-wrap: break-word;
+  width: fit-content
 }
 
 
-/* Input area */
 .input-area {
   display: flex;
   align-items: center;
@@ -141,12 +137,24 @@ body {
   line-height: 1.4;
 }
 
+.chat-window .model::after {
+  display: block;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 8px 8px 0;
+  border-color: transparent #f7cab7 transparent transparent;
+  position: absolute;
+  left: -7px;
+  top: 13px;
+}
+
 .chat-window .chat .model > *:not(.hidden-styles) { 
   background-color: #f7cab7; 
   color: #1a1a1a;
   border-radius: 16px;
   padding: 10px 14px; 
-  margin-bottom: 5px; 
   max-width: 80%; 
   word-wrap: break-word; 
 }
@@ -157,95 +165,193 @@ body {
 }
 
 .chat-window .chat .model h4 {
-  font-size: 1.1em; /* Adjust font size if needed */
-  font-weight: 700; /* Ensure it's bold */
-  margin-top: 10px; /* Adjust top margin for spacing from previous element */
-  margin-bottom: 5px; /* Adjust bottom margin */
-  /* All other bubble styles are inherited from the common rule above */
+  font-size: 1.1em;
+  font-weight: 700; 
+  margin-top: 10px;  
+  margin-bottom: 5px; 
 }
 
-/* Specific adjustments for unordered and ordered lists */
+
 .chat-window .chat .model ul,
 .chat-window .chat .model ol {
-  /* padding: 10px 14px 10px 30px; Adjust left padding for bullets/numbers */
-  margin-left: 0; /* Reset default browser margin if any */
-  /* All other bubble styles are inherited from the common rule above */
-  color: #1a1a1a; /* Inherits text color */
-
-  /* KEY CHANGES FOR ALIGNMENT */
-  list-style-position: inside; /* This places the bullet/number *inside* the list item's content area */
-  margin-left: 0; /* Ensure no default margin pushes the list over */
-  padding-left: 20px; /* Adjust this value to control how far the content is indented from the left edge of the bubble */
-  padding-right: 14px; /* Keep consistent right padding */
+  margin-left: 0; 
+  color: #1a1a1a; 
+  list-style-position: inside; 
+  margin-left: 0; 
+  padding-left: 20px; 
+  padding-right: 14px; 
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* Individual list items within the list bubble */
 .chat-window .chat .model li {
-  margin-bottom: 5px; /* Space between list items */
+  margin-bottom: 5px; 
   line-height: 1.4;
-  /* DO NOT apply bubble styles to individual li items, as they are part of the ul/ol bubble */
-  background-color: transparent; /* Ensure no extra background */
-  padding: 0; /* Ensure no extra padding */
+  background-color: transparent; 
+  padding: 0;
   border-radius: 0;
-  max-width: none; /* Let li take full width of its ul/ol parent */
+  max-width: none; 
 }
 
-/* Add this to your style.css file */
-
-/* Style for the back button on the page (not inside the chat window) */
 .page-back-button {
-  position: fixed; /* Stays in place when scrolling */
-  top: 20px; /* Distance from the top of the viewport */
-  left: 20px; /* Distance from the left of the viewport */
-  color: #3e3f39; /* Darker color to stand out on the light background */
+  position: fixed;
+  top: 20px; 
+  left: 20px; 
+  color: #3e3f39;
   text-decoration: none;
   font-weight: 600;
-  
-  /* === Responsive Font Size === */
-  font-size: 1.1em; /* Default font size for larger screens */
-  
-  /* === Responsive Padding/Shape === */
-  padding: 8px 15px; /* Default padding for larger screens */
-  border-radius: 20px; /* More rounded, like a small pill button */
-  
-  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px; /* Subtle shadow */
-  z-index: 1000; /* Ensure it's on top of other content */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease, padding 0.3s ease; /* Add transitions for smooth scaling */
+  font-size: 1.1em; 
+  padding: 8px 15px; 
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px; 
+  z-index: 1000; 
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease, padding 0.3s ease; 
 }
 
 .page-back-button:hover {
-  background-color: rgba(255, 255, 255, 1); /* Opaque white on hover */
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 15px; /* More prominent shadow on hover */
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 15px; 
 }
 
-/* === Media Queries for Responsiveness === */
 
-/* For screens smaller than 768px (e.g., tablets in portrait) */
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45px;
+  height: 9px;
+  margin-left: -22px;
+  margin-top: -13px;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+.spinner > div {
+  width: 7px;
+  height: 7px;
+  background-color: #1a1a1a;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0);
+            transform: scale(0.0);
+  }
+  40% {
+    -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+  }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0.0);
+            transform: scale(0.0);
+  }
+  40% {
+    -webkit-transform: scale(1.0);
+            transform: scale(1.0);
+  }
+}
+
+#loading-bubble {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+
+  width: auto;
+  height: auto;
+
+  min-width: 73px;
+  min-height: 40px;
+  border-radius: 16px;
+
+  box-sizing: border-box;
+  position: relative;
+  background-color: #f7cab7;
+
+  -webkit-animation: message-bounce 2.5s infinite ease-in-out;
+  animation: message-bounce 2.5s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+#loading-bubble .spinner {
+  position: static !important;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+#loading-bubble .spinner div {
+  background-color: #1a1a1a;
+}
+
+@keyframes message-bounce {
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+
 @media (max-width: 768px) {
   .page-back-button {
-    font-size: 1em; /* Slightly smaller font */
-    padding: 7px 12px; /* Adjust padding */
+    font-size: 1em; 
+    padding: 7px 12px;
     top: 15px;
     left: 15px;
   }
 }
 
-/* For screens smaller than 480px (e.g., mobile phones) */
+
 @media (max-width: 480px) {
   .page-back-button {
-    font-size: 0.9em; /* Even smaller font */
-    padding: 6px 10px; /* Adjust padding further */
+    font-size: 0.9em;
+    padding: 6px 10px;
     top: 10px;
     left: 10px;
-    border-radius: 15px; /* Slightly less rounded */
+    border-radius: 15px;
   }
 }
 
-/* Ensure the chat window header is styled correctly again without the flex container */
-.chat-window .close { /* This was your original chat window header */
+
+.chat-window .close {
   background-color: #3e3f39;
   color: var(--white);
   padding: 12px;
@@ -254,16 +360,8 @@ body {
   font-weight: 600;
   cursor: default;
   font-size: 18px;
-  /* Removed position:relative and related back button styles */
 }
 
-/* Remove or comment out these previous rules: */
-/*
-.chat-window .header-container { ... }
-.chat-window .back-button { ... }
-*/
-
-/* Responsive */
 @media (max-width: 640px) {
   .chat-window {
     height: 90vh;
